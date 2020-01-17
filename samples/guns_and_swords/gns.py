@@ -24,14 +24,14 @@ import numpy as np
 import skimage.draw
 
 
-from keras import backend as K
+'''from keras import backend as K
 import keras
 import tensorflow as tf
 from keras.backend.tensorflow_backend import set_session
 config = tf.ConfigProto()
 config.gpu_options.allow_growth = True #allows dynamic growth
 config.gpu_options.visible_device_list = "2" #set GPU number
-set_session(tf.Session(config=config))
+set_session(tf.Session(config=config))'''
 
 
 # Root directory of the project
