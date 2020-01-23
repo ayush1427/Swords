@@ -139,7 +139,7 @@ class orgforgDataset(utils.Dataset):
                 path=image_path,
                 width=width, height=height,
                 polygons = polygons,
-                class_names = class_names
+                #class_names = class_names
             )
 
     def load_mask(self, image_id):
