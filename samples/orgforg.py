@@ -123,10 +123,8 @@ class orgforgDataset(utils.Dataset):
             # The if condition is needed to support VIA versions 1.x and 2.x.
             if type(a['regions']) is dict:
                 polygons = [r['shape_attributes'] for r in a['regions'].values()]
-                class_names = [list(r['region_attributes']['name'].keys())[0] for r in a['regions'].values()]
             else:
                 polygons = [r['shape_attributes'] for r in a['regions']] 
-                class_names = [list(r['region_attributes']['name'].keys())[0] for r in a['regions']]
 
             # load_mask() needs the image size to convert polygons to masks.
             # Unfortunately, VIA doesn't include it in JSON, so we must read
