@@ -84,9 +84,9 @@ class orgforgDataset(utils.Dataset):
         """
         # Add classes. We have only one class to add.
         self.add_class("orgforg", 1, "original")
-        self.add_class("orgforg", 2, "forged") 
+        self.add_class("orgforg", 2, "copied") 
 
-        self.class_name_to_ids = {'original':1,'forged':2} 
+        self.class_name_to_ids = {'original':1,'copied':2} 
 
         # Train or validation dataset?
         assert subset in ["train", "val"]
