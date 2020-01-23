@@ -1,6 +1,6 @@
 """
 Mask R-CNN
-Train on the Guns and Swords dataset.
+Train on the original and copied dataset.
 ------------------------------------------------------------
 
 Usage: import the module (see Jupyter notebooks for examples), or run from
@@ -64,7 +64,7 @@ class orgforgConfig(Config):
     # Adjust down if you use a smaller GPU.
     IMAGES_PER_GPU = 3
 # Number of classes (including background)
-    NUM_CLASSES = 1 + 2  # Background + sword + gun
+    NUM_CLASSES = 1 + 2  # Background + original + copied
 # Number of training steps per epoch
     STEPS_PER_EPOCH = 100
 # Skip detections with < 90% confidence
