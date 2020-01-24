@@ -1,5 +1,5 @@
 """
-Mask R-CNN
+CNN
 Train on the original and copied dataset.
 ------------------------------------------------------------
 
@@ -37,7 +37,7 @@ set_session(tf.Session(config=config))'''
 # Root directory of the project
 ROOT_DIR = os.path.abspath("../../")
 
-# Import Mask RCNN
+# Import CNN
 sys.path.append(ROOT_DIR)  # To find local version of the library
 from mrcnn.config import Config
 from mrcnn import model as modellib, utils
@@ -83,10 +83,10 @@ class orgforgDataset(utils.Dataset):
         subset: Subset to load: train or val
         """
         # Add classes. We have only one class to add.
-        self.add_class("orgforg", 1, "original")
-        self.add_class("orgforg", 2, "copied") 
+        #self.add_class("orgforg", 1, "original")
+        #self.add_class("orgforg", 2, "copied") 
 
-        self.class_name_to_ids = {'original':1,'copied':2} 
+        #self.class_name_to_ids = {'original':1,'copied':2} 
 
         # Train or validation dataset?
         assert subset in ["train", "val"]
