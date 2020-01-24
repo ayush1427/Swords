@@ -1,5 +1,5 @@
 """
-Mask R-CNN
+R-CNN
 Display and Visualization Functions.
 
 Copyright (c) 2017 Matterport, Inc.
@@ -81,7 +81,7 @@ def apply_mask(image, mask, color, alpha=0.5):
 
 
 def display_instances(image, boxes, masks, class_ids,
-                      scores=None, title="",
+                      class_names, scores=None, title="",
                       figsize=(16, 16), ax=None,
                       show_mask=True, show_bbox=True,
                       colors=None, captions=None):
@@ -170,7 +170,7 @@ def display_instances(image, boxes, masks, class_ids,
 def display_differences(image,
                         gt_box, gt_class_id, gt_mask,
                         pred_box, pred_class_id, pred_score, pred_mask,
-                        title="", ax=None,
+                        class_names, title="", ax=None,
                         show_mask=True, show_box=True,
                         iou_threshold=0.5, score_threshold=0.5):
     """Display ground truth and prediction instances on the same image."""
@@ -199,15 +199,15 @@ def display_differences(image,
     display_instances(
         image,
         boxes, masks, class_ids,
-        scores, ax=ax,
+        class_names, scores, ax=ax,
         show_bbox=show_box, show_mask=show_mask,
         colors=colors, captions=captions,
         title=title)
 
 
 def draw_rois(image, rois, refined_rois, mask, class_ids, class_names, limit=10):
-    """
-    anchors: [n, (y1, x1, y2, x2)] list of anchors in image coordinates.
+    """ 
+    anchors: [n, (y1, x1, y2, x2)] list of anchors in image coordinates.    
     proposals: [n, 4] the same anchors but refined to fit objects better.
     """
     masked_image = image.copy()
@@ -279,7 +279,7 @@ def draw_box(image, box, color):
     return image
 
 
-def display_top_masks(image, mask, class_ids, limit=4):
+def display_top_masks(image, mask, class_ids, class_names, limit=4):
     """Display the given image and the top few class masks."""
     to_display = []
     titles = []
@@ -318,7 +318,7 @@ def plot_precision_recall(AP, precisions, recalls):
 
 
 def plot_overlaps(gt_class_ids, pred_class_ids, pred_scores,
-                  overlaps, threshold=0.5):
+                  overlaps, class_names, threshold=0.5):
     """Draw a grid showing how ground truth objects are classified.
     gt_class_ids: [N] int. Ground truth class IDs
     pred_class_id: [N] int. Predicted class IDs
