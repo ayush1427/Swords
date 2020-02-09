@@ -83,10 +83,15 @@ class orgforgDataset(utils.Dataset):
         subset: Subset to load: train or val
         """
         # Add classes. We have only one class to add.
-        self.add_class("orgforg", 1, "forged")
-        self.add_class("orgforg", 2, "original") 
-
-        self.class_name_to_ids = {'forged':1,'original':2} 
+        self.add_class("orgforg", 1, "o")
+        self.add_class("orgforg", 2, "f") 
+        
+        #self.add_class("orgforg", 1, "forged")
+        #self.add_class("orgforg", 2, "original") 
+        
+        self.class_name_to_ids = {'o':1,'f':2}
+       
+        #self.class_name_to_ids = {'forged':1,'original':2} 
 
         # Train or validation dataset?
         assert subset in ["train", "val"]
